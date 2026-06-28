@@ -1,0 +1,119 @@
+---
+import { site } from "../content/site";
+const base = import.meta.env.BASE_URL;
+const { sobre } = site;
+---
+
+<section class="section sobre" id="sobre">
+  <div class="container sobre-grid">
+    <div class="sobre-photo reveal">
+      <span class="blob blob-d"></span>
+      <div class="photo-frame">
+        <img src={`${base}${sobre.foto}`} alt={sobre.fotoAlt} />
+      </div>
+    </div>
+
+    <div class="sobre-copy reveal">
+      <span class="eyebrow">{sobre.titulo}</span>
+      <h2 class="section-title">{sobre.nome}</h2>
+      <p class="funcao">{sobre.funcao}</p>
+      {sobre.paragrafos.map((p) => <p class="sobre-text">{p}</p>)}
+
+      {
+        sobre.formacao.length > 0 && (
+          <ul class="formacao">
+            {sobre.formacao.map((f) => (
+              <li>{f}</li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .sobre {
+    background: var(--creme);
+  }
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    align-items: center;
+    gap: clamp(36px, 6vw, 80px);
+  }
+  .sobre-photo {
+    position: relative;
+    justify-self: center;
+  }
+  .blob-d {
+    width: 360px;
+    height: 360px;
+    --blob-color: var(--lavanda-200);
+    top: -40px;
+    left: -40px;
+    opacity: 0.6;
+  }
+  .photo-frame {
+    position: relative;
+    z-index: 1;
+    width: clamp(260px, 32vw, 380px);
+    aspect-ratio: 4 / 5;
+    border-radius: 46% 46% 48% 48% / 60% 60% 40% 40%;
+    overflow: hidden;
+    box-shadow: var(--sombra-forte);
+    border: 6px solid var(--branco);
+  }
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .funcao {
+    font-weight: 600;
+    color: var(--roxo-600);
+    margin: 8px 0 22px;
+  }
+  .sobre-text {
+    color: var(--tinta-suave);
+    margin-bottom: 16px;
+  }
+  .formacao {
+    list-style: none;
+    margin-top: 26px;
+    display: grid;
+    gap: 12px;
+  }
+  .formacao li {
+    position: relative;
+    padding-left: 30px;
+    color: var(--tinta);
+    font-weight: 500;
+  }
+  .formacao li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--salvia);
+    box-shadow: 0 0 0 4px var(--salvia-claro);
+  }
+
+  @media (max-width: 860px) {
+    .sobre-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .sobre-photo {
+      order: -1;
+    }
+    .formacao li {
+      text-align: left;
+      max-width: 30ch;
+      margin-inline: auto;
+    }
+  }
+</style>

@@ -1,0 +1,173 @@
+---
+import { site } from "../content/site";
+const base = import.meta.env.BASE_URL;
+const wa = `https://wa.me/${site.contato.whatsapp}?text=${encodeURIComponent(
+  site.contato.mensagemWhatsapp
+)}`;
+---
+
+<header class="site-header" id="topo">
+  <div class="container header-inner">
+    <a href="#topo" class="brand" aria-label={site.nome}>
+      <img src={`${base}${site.logo}`} alt={site.nome} class="brand-logo" />
+      <span class="brand-text">
+        <strong>{site.nome}</strong>
+        <small>{site.subtitulo}</small>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#especialidades">{site.menu.especialidades}</a>
+      <a href="#sobre">{site.menu.sobre}</a>
+      <a href="#contato">{site.menu.contato}</a>
+      <a href={wa} target="_blank" rel="noopener" class="btn btn-primary nav-cta"
+        >{site.hero.cta}</a
+      >
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(251, 249, 246, 0.96);
+    border-bottom: 1px solid rgba(74, 44, 109, 0.08);
+    transition: box-shadow 0.3s ease;
+  }
+  .site-header.scrolled {
+    box-shadow: 0 6px 24px -16px rgba(47, 29, 74, 0.35);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+  }
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .brand-text strong {
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    font-size: 1.12rem;
+    color: var(--roxo-900);
+  }
+  .brand-text small {
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--tinta-suave);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  .nav a {
+    font-weight: 500;
+    color: var(--tinta);
+    transition: color 0.2s ease;
+  }
+  .nav a:not(.nav-cta):hover {
+    color: var(--roxo-600);
+  }
+  .nav-cta {
+    padding: 11px 22px;
+    font-size: 0.95rem;
+  }
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .menu-toggle span {
+    width: 26px;
+    height: 2px;
+    background: var(--roxo-700);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  @media (max-width: 860px) {
+    .menu-toggle {
+      display: flex;
+    }
+    .nav {
+      position: fixed;
+      inset: 76px 0 auto 0;
+      flex-direction: column;
+      gap: 18px;
+      background: var(--creme);
+      padding: 28px 24px 36px;
+      border-bottom: 1px solid rgba(74, 44, 109, 0.08);
+      transform: translateY(-130%);
+      transition: transform 0.35s ease;
+      box-shadow: var(--sombra-suave);
+    }
+    .nav.open {
+      transform: translateY(0);
+    }
+    .brand-text small {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const header = document.querySelector(".site-header");
+  const toggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("nav");
+  const brand = document.querySelector(".brand");
+
+  // Throttle scroll handler com requestAnimationFrame
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      header?.classList.toggle("scrolled", window.scrollY > 12);
+      ticking = false;
+    });
+  });
+
+  // Logo volta ao topo (o header é sticky, então âncora #topo não funciona)
+  brand?.addEventListener("click", (e) => {
+    e.preventDefault();
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  });
+
+  toggle?.addEventListener("click", () => {
+    const open = nav?.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(!!open));
+  });
+
+  nav?.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      nav.classList.remove("open");
+      toggle?.setAttribute("aria-expanded", "false");
+    })
+  );
+</script>

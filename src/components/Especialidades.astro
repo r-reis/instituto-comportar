@@ -1,0 +1,280 @@
+---
+import { site } from "../content/site";
+import Icon from "./Icon.astro";
+const { especialidades } = site;
+---
+
+<section class="section especialidades" id="especialidades">
+  <span class="blob blob-c"></span>
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">{site.menu.especialidades}</span>
+      <h2 class="section-title">{especialidades.titulo}</h2>
+      <p class="section-lead">{especialidades.subtitulo}</p>
+    </div>
+
+    <div class="grid">
+      {
+        especialidades.itens.map((item, i) => (
+          <button
+            class="card reveal"
+            data-index={i}
+            aria-haspopup="dialog"
+          >
+            <span class="card-icon">
+              <Icon name={item.icone} />
+            </span>
+            <h3>{item.titulo}</h3>
+            <p>{item.resumo}</p>
+            <span class="card-more">Saiba mais →</span>
+          </button>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Modal (único, preenchido via JS ao clicar no card) -->
+<div class="modal" id="espModal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-card" role="document">
+    <button class="modal-close" data-close aria-label="Fechar">×</button>
+    <span class="modal-icon" id="modalIcon"></span>
+    <h3 id="modalTitle"></h3>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- Dados das especialidades para o modal -->
+<script type="application/json" id="espData" set:html={JSON.stringify(especialidades.itens)} />
+
+<style>
+  .especialidades {
+    background: linear-gradient(180deg, var(--creme) 0%, var(--lavanda) 100%);
+    overflow: hidden;
+  }
+  .blob-c {
+    width: 420px;
+    height: 420px;
+    --blob-color: var(--salvia-claro);
+    top: 40px;
+    right: -180px;
+    opacity: 0.4;
+  }
+  .head {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .head .section-lead {
+    margin-inline: auto;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+  .card {
+    position: relative;
+    text-align: left;
+    background: var(--branco);
+    border: 1px solid rgba(74, 44, 109, 0.06);
+    border-radius: var(--raio);
+    padding: 30px 26px 26px;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.3s ease, box-shadow 0.3s ease,
+      border-color 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra-forte);
+    border-color: var(--roxo-300);
+  }
+  .card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: var(--lavanda);
+    color: var(--roxo-600);
+    margin-bottom: 18px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+  .card:hover .card-icon {
+    background: var(--roxo-700);
+    color: var(--branco);
+    transform: rotate(-6deg) scale(1.05);
+  }
+  .card h3 {
+    font-size: 1.22rem;
+    margin-bottom: 10px;
+  }
+  .card p {
+    color: var(--tinta-suave);
+    font-size: 0.96rem;
+    margin-bottom: 16px;
+  }
+  .card-more {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--roxo-600);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .card:hover .card-more {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (max-width: 980px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .card-more {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @media (max-width: 520px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---- Modal ---- */
+  .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .modal.open {
+    visibility: visible;
+    opacity: 1;
+  }
+  .modal-overlay {
+    position: absolute;
+    inset: 0;
+    /* Sem backdrop-filter: blur (trava no Firefox ao abrir o modal). */
+    background: rgba(47, 29, 74, 0.55);
+  }
+  .modal-card {
+    position: relative;
+    z-index: 1;
+    width: min(560px, 100%);
+    max-height: 88vh;
+    overflow-y: auto;
+    background: var(--branco);
+    border-radius: 28px;
+    padding: 44px 40px 40px;
+    box-shadow: var(--sombra-forte);
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .modal.open .modal-card {
+    transform: none;
+  }
+  .modal-close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: var(--lavanda);
+    color: var(--roxo-700);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .modal-close:hover {
+    background: var(--lavanda-200);
+  }
+  .modal-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: var(--roxo-700);
+    color: var(--branco);
+    margin-bottom: 20px;
+  }
+  .modal-card h3 {
+    font-size: 1.7rem;
+    margin-bottom: 16px;
+  }
+  .modal-card :global(p) {
+    color: var(--tinta-suave);
+    margin-bottom: 14px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .modal,
+    .modal-card {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  import { renderIcon } from "../scripts/icons";
+
+  type Item = { icone: string; titulo: string; detalhe: string[] };
+
+  const dataEl = document.getElementById("espData");
+  const items: Item[] = dataEl ? JSON.parse(dataEl.textContent || "[]") : [];
+
+  const modal = document.getElementById("espModal");
+  const titleEl = document.getElementById("modalTitle");
+  const bodyEl = document.getElementById("modalBody");
+  const iconEl = document.getElementById("modalIcon");
+  let lastFocused: HTMLElement | null = null;
+
+  function openModal(i: number) {
+    const item = items[i];
+    if (!item || !modal) return;
+    lastFocused = document.activeElement as HTMLElement;
+    if (titleEl) titleEl.textContent = item.titulo;
+    if (iconEl) iconEl.innerHTML = renderIcon(item.icone);
+    if (bodyEl)
+      bodyEl.innerHTML = item.detalhe.map((p) => `<p>${p}</p>`).join("");
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    lastFocused?.focus();
+  }
+
+  document.querySelectorAll<HTMLElement>(".card").forEach((card) => {
+    card.addEventListener("click", () =>
+      openModal(Number(card.dataset.index))
+    );
+  });
+
+  modal
+    ?.querySelectorAll("[data-close]")
+    .forEach((el) => el.addEventListener("click", closeModal));
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal?.classList.contains("open")) closeModal();
+  });
+</script>

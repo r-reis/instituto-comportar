@@ -8,9 +8,9 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
+# astro
+/dist/
+/.astro/
 
 # production
 /build
@@ -18,6 +18,9 @@
 # misc
 .DS_Store
 *.pem
+
+# rascunhos e material de referência (NÃO publicar — contém dados pessoais)
+/_assets/
 
 # debug
 npm-debug.log*

@@ -1,0 +1,194 @@
+/* ===========================================================================
+   Instituto Comportar — estilos globais e paleta da marca
+   Cores derivadas do logo: roxo profundo + lavanda + verde sálvia + creme.
+   =========================================================================== */
+
+:root {
+  /* Marca */
+  --roxo-900: #2f1d4a;
+  --roxo-700: #4a2c6d;
+  --roxo-600: #5d3a85;
+  --roxo-500: #7c5cad;
+  --roxo-300: #b79ed6;
+  --lavanda: #f3eefa;
+  --lavanda-200: #e7dcf5;
+  --salvia: #8aa37b;
+  --salvia-claro: #e8efe3;
+  --creme: #fbf9f6;
+  --creme-200: #f4eee7;
+
+  /* Texto */
+  --tinta: #2c2438;
+  --tinta-suave: #6a607a;
+
+  /* Sistema */
+  --branco: #ffffff;
+  --sombra-suave: 0 10px 30px -12px rgba(47, 29, 74, 0.18);
+  --sombra-forte: 0 24px 60px -20px rgba(47, 29, 74, 0.3);
+  --raio: 22px;
+  --raio-sm: 14px;
+  --largura: 1160px;
+
+  --fonte-titulo: "Fraunces", Georgia, serif;
+  --fonte-corpo: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Espaço deixado no topo ao clicar num item do menu (compensa o header fixo).
+     Diminua para "descer" mais; aumente para "subir". */
+  scroll-padding-top: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  color: var(--tinta);
+  background: var(--creme);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 500;
+  line-height: 1.12;
+  color: var(--roxo-900);
+  letter-spacing: -0.01em;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---- Utilidades de layout ---- */
+.container {
+  width: 100%;
+  max-width: var(--largura);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.section {
+  padding-block: clamp(64px, 9vw, 120px);
+  position: relative;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--roxo-500);
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+}
+
+.section-lead {
+  color: var(--tinta-suave);
+  font-size: 1.08rem;
+  max-width: 56ch;
+  margin-top: 16px;
+}
+
+/* ---- Botões ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--fonte-corpo);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 15px 28px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background 0.25s ease, color 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--roxo-700);
+  color: var(--branco);
+  box-shadow: var(--sombra-suave);
+}
+
+.btn-primary:hover {
+  background: var(--roxo-600);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-forte);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--roxo-700);
+  border-color: var(--roxo-300);
+}
+
+.btn-ghost:hover {
+  background: var(--lavanda);
+  transform: translateY(-2px);
+}
+
+/* ---- Animações de scroll reveal ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---- Formas orgânicas de fundo ---- */
+/* Formas suaves via radial-gradient (sem filter: blur, que trava no Firefox).
+   Cada blob define sua cor com --blob-color. */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.55;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    var(--blob-color, var(--lavanda-200)) 0%,
+    transparent 72%
+  );
+}
