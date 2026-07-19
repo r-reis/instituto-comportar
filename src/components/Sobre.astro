@@ -38,13 +38,17 @@ const { sobre } = site;
   }
   .sobre-grid {
     display: grid;
-    grid-template-columns: 1fr 1.15fr;
+    grid-template-columns: 1.15fr 1fr;
     align-items: center;
     gap: clamp(36px, 6vw, 80px);
   }
   .sobre-photo {
     position: relative;
     justify-self: center;
+    order: 2;
+  }
+  .sobre-copy {
+    order: 1;
   }
   .blob-d {
     width: 360px;

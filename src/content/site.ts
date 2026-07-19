@@ -28,7 +28,7 @@ export const site = {
       "Sou Gisele, psicóloga especialista em Análise do Comportamento e Neuropsicologia. Atuo com avaliações neuropsicológicas e psicoterapia comportamental para todas as idades, no presencial ou online.",
     cta: "Agendar consulta",
     ctaSecundario: "Ver especialidades",
-    foto: "images/dra-retrato-1.jpg",
+    foto: "images/dra-retrato-1.jpeg",
     fotoAlt: "Gisele Duarte — Instituto Comportar",
   },
 
@@ -96,7 +96,7 @@ export const site = {
         icone: "reabilitacao",
         titulo: "Reabilitação Cognitiva",
         resumo:
-          "Estimulação e fortalecimento das funções cognitivas de forma personalizada.",
+          "Intervenção e fortalecimento das funções cognitivas de forma personalizada.",
         detalhe: [
           "A reabilitação cognitiva trabalha o fortalecimento de funções como atenção, memória e raciocínio por meio de atividades estruturadas e individualizadas.",
           "O plano é construído a partir dos resultados da avaliação e das necessidades de cada paciente, com foco na autonomia e na qualidade de vida.",
@@ -108,7 +108,7 @@ export const site = {
         resumo:
           "Supervisão clínica para psicólogos e equipes em Análise do Comportamento.",
         detalhe: [
-          "Espaço de supervisão para psicólogos e profissionais que desejam aprimorar a prática clínica com base na Análise do Comportamento.",
+          "Espaço de supervisão para psicólogos e profissionais que desejam aprimorar a prática clínica com base na Análise do Comportamento ou Neuropsicologia.",
           "Como responsável técnica e supervisora do Instituto Comportar, ofereço discussão de casos, estudo e desenvolvimento profissional contínuo.",
         ],
       },
@@ -129,13 +129,13 @@ export const site = {
   sobre: {
     titulo: "Sobre",
     nome: "Gisele Nunes Duarte",
-    funcao: "Psicóloga e Neuropsicóloga — CRP [00/00000]",
+    funcao: "Psicóloga e Neuropsicóloga — CRP [06/170401]",
     paragrafos: [
       "Sou Gisele, psicóloga especialista em Análise do Comportamento e Neuropsicologia. Atuo principalmente com avaliações neuropsicológicas e atendimentos em psicoterapia comportamental para todas as idades.",
       "Atendo diferentes idades e demandas e atuo como responsável técnica e supervisora no Instituto Comportar. Tenho experiência em Acompanhamento Terapêutico, com foco em Análise Aplicada do Comportamento, Modelo Denver e Neurodesenvolvimento Atípico, além de avaliações neuropsicológicas e reabilitação cognitiva.",
       "Você pode ser atendido nas modalidades presencial ou online — entre em contato para entendermos juntos qual é a mais indicada para você.",
     ],
-    foto: "images/dra-retrato-2.jpg",
+    foto: "images/dra-retrato-2.jpeg",
     fotoAlt: "Gisele Duarte no Instituto Comportar",
     // Lista curta de formações/títulos (opcional). Deixe [] para esconder.
     formacao: [
@@ -149,8 +149,7 @@ export const site = {
   // ---- Seção CONTATO ----
   contato: {
     titulo: "Vamos conversar?",
-    subtitulo:
-      "Agende sua consulta ou tire suas dúvidas pelos canais abaixo.",
+    subtitulo: "Agende sua consulta ou tire suas dúvidas pelos canais abaixo.",
     // WhatsApp: só números, com código do país e DDD. Ex: 5511999999999
     whatsapp: "5511959669956",
     whatsappLabel: "(11) 95966-9956",

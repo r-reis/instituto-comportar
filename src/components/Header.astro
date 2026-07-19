@@ -81,7 +81,7 @@ const wa = `https://wa.me/${site.contato.whatsapp}?text=${encodeURIComponent(
     align-items: center;
     gap: 30px;
   }
-  .nav a {
+  .nav a:not(.nav-cta) {
     font-weight: 500;
     color: var(--tinta);
     transition: color 0.2s ease;
@@ -92,6 +92,7 @@ const wa = `https://wa.me/${site.contato.whatsapp}?text=${encodeURIComponent(
   .nav-cta {
     padding: 11px 22px;
     font-size: 0.95rem;
+    color: var(--branco);
   }
   .menu-toggle {
     display: none;

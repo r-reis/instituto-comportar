@@ -16,7 +16,6 @@ const wa = `https://wa.me/${contato.whatsapp}?text=${encodeURIComponent(
       <div class="photo-frame">
         <img src={`${base}${hero.foto}`} alt={hero.fotoAlt} />
       </div>
-      <span class="leaf leaf-1" aria-hidden="true">🌿</span>
     </div>
 
     <div class="hero-copy reveal">
@@ -36,7 +35,13 @@ const wa = `https://wa.me/${contato.whatsapp}?text=${encodeURIComponent(
 <style>
   .hero {
     position: relative;
-    padding-block: clamp(48px, 8vw, 96px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 76px;
+    padding-bottom: clamp(48px, 8vw, 96px);
     overflow: hidden;
   }
   .blob-a {
@@ -56,6 +61,7 @@ const wa = `https://wa.me/${contato.whatsapp}?text=${encodeURIComponent(
   .hero-grid {
     position: relative;
     z-index: 1;
+    width: 100%;
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
     align-items: center;
