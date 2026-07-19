@@ -68,8 +68,7 @@ export const site = {
         resumo:
           "Um ambiente privativo e acolhedor, da recepção ao atendimento.",
         detalhe: [
-          "Pensada em um ambiente mais privativo, com recepção e sala de espera, a psicoterapia presencial acolhe o paciente desde a sua chegada.",
-          "O atendimento acontece em salas confortáveis e organizadas, com cada encontro planejado especialmente para receber você.",
+          "Vivencie um espaço de escuta pensado exclusivamente para o seu bem-estar. Contamos com recepção privativa, sala de espera acolhedora e consultórios projetados para o seu total conforto. Um ambiente seguro e organizado, onde cada encontro é preparado com dedicação para receber você.",
         ],
       },
       {
@@ -78,8 +77,8 @@ export const site = {
         resumo:
           "Apoio a famílias e responsáveis no cuidado de crianças e adolescentes.",
         detalhe: [
-          "Ser responsável por crianças e adolescentes em processo de psicoterapia, com dificuldades escolares ou comportamentos desafiadores, exige conhecimentos que nem sempre são facilmente encontrados.",
-          "Com a orientação parental, familiares e responsáveis são orientados quanto aos desafios e dificuldades que enfrentam. É um atendimento individualizado, pensado nas dúvidas que cada família tem sobre sua criança ou adolescente.",
+          "Guiar crianças e adolescentes que passam por desafios escolares, comportamentais ou que já estão em psicoterapia é uma missão complexa, e os cuidadores não precisam caminhar sozinhos.",
+          "A Orientação Parental oferece um espaço individualizado de acolhimento e escuta ativa. Juntos, traduzimos as dúvidas de cada dinâmica familiar em estratégias práticas, seguras e personalizadas para o desenvolvimento do seu filho.",
         ],
       },
       {
@@ -157,8 +156,7 @@ export const site = {
       "Olá, Gisele! Gostaria de agendar uma consulta no Instituto Comportar.",
     email: "instituto.comportarpsicologia@gmail.com",
     // ATENÇÃO: confirme o endereço do CONSULTÓRIO (não o residencial) antes de publicar.
-    endereco:
-      "Rua Vinte Um de Abril, 180 — São Bernardo do Campo, SP",
+    endereco: "Rua Vinte Um de Abril, 180 — São Bernardo do Campo, SP",
     horario: "Segunda a sexta, das 9h às 18h",
     instagram: "@giseleduarteneuropsi",
     instagramUrl: "https://instagram.com/giseleduarteneuropsi",
