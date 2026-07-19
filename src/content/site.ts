@@ -132,15 +132,15 @@ export const site = {
     funcao: "Psicóloga e Neuropsicóloga — CRP [06/170401]",
     paragrafos: [
       "Sou Gisele, psicóloga especialista em Análise do Comportamento e Neuropsicologia. Atuo principalmente com avaliações neuropsicológicas e atendimentos em psicoterapia comportamental para todas as idades.",
-      "Atendo diferentes idades e demandas e atuo como responsável técnica e supervisora no Instituto Comportar. Tenho experiência em Acompanhamento Terapêutico, com foco em Análise Aplicada do Comportamento, Modelo Denver e Neurodesenvolvimento Atípico, além de avaliações neuropsicológicas e reabilitação cognitiva.",
-      "Você pode ser atendido nas modalidades presencial ou online — entre em contato para entendermos juntos qual é a mais indicada para você.",
+      "Como neuropsicóloga, atuo na avaliação e investigação de alterações cognitivas, desenvolvimento atípico e condições como altas habilidades e superdotação (AH/SD). Em psicoterapia, minha prática é fundamentada na Análise do Comportamento Aplicada (ABA) — abordagem amplamente reconhecida no manejo do Transtorno do Espectro Autista (TEA) e de diversas outras demandas clínicas.",
+      "Se você é profissional da área e busca suporte para o desenvolvimento do raciocínio clínico, compreensão de diagnósticos ou mediação de manejos terapêuticos, ofereço um serviço especializado de supervisão clínica.",
     ],
     foto: "images/dra-retrato-2.jpeg",
     fotoAlt: "Gisele Duarte no Instituto Comportar",
     // Lista curta de formações/títulos (opcional). Deixe [] para esconder.
     formacao: [
       "Especialização em Neuropsicologia e Reabilitação Cognitiva — HC-FMUSP (2023)",
-      "Especialização em Intervenção ABA para Autismo e Deficiência Intelectual — CBI of Miami (2022)",
+      "Especialização em Intervenção Applied Behavior Analysis (ABA) para Autismo e Deficiência Intelectual —  (2022)",
       "Graduação em Psicologia — Universidade São Judas Tadeu (2020)",
       "Aprimoramento em Psicoterapia Baseada em Evidências — InPBE (cursando)",
     ],
@@ -155,15 +155,15 @@ export const site = {
     whatsappLabel: "(11) 95966-9956",
     mensagemWhatsapp:
       "Olá, Gisele! Gostaria de agendar uma consulta no Instituto Comportar.",
-    telefone: "(11) 95966-9956",
-    email: "gisele.nunes.duarte@gmail.com",
+    email: "instituto.comportarpsicologia@gmail.com",
     // ATENÇÃO: confirme o endereço do CONSULTÓRIO (não o residencial) antes de publicar.
-    endereco: "São Bernardo do Campo — SP",
+    endereco:
+      "Rua Vinte Um de Abril, 180 — São Bernardo do Campo, SP",
     horario: "Segunda a sexta, das 9h às 18h",
-    instagram: "@institutocomportar",
-    instagramUrl: "https://instagram.com/institutocomportar",
+    instagram: "@giseleduarteneuropsi",
+    instagramUrl: "https://instagram.com/giseleduarteneuropsi",
     // Endereço usado no mapa. Deixe "" para esconder o mapa.
-    mapaQuery: "",
+    mapaQuery: "Rua Vinte Um de Abril 180 Rudge Ramos São Bernardo do Campo SP",
   },
 
   rodape: {
